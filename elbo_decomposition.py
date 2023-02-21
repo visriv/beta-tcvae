@@ -9,7 +9,7 @@ import lib.dist as dist
 import lib.flows as flows
 
 
-def estimate_entropies(qz_samples, qz_params, q_dist):
+def estimate_entropies(qz_samples, qz_params, q_dist, use_cuda):
     """Computes the term:
         E_{p(x)} E_{q(z|x)} [-log q(z)]
     and
@@ -28,15 +28,22 @@ def estimate_entropies(qz_samples, qz_params, q_dist):
     """
 
     # Only take a sample subset of the samples
-    qz_samples = qz_samples.index_select(1, Variable(torch.randperm(qz_samples.size(1))[:10000].cuda()))
+    if use_cuda:
+        qz_samples = qz_samples.cuda()
+    qz_samples = qz_samples.index_select(1, Variable(torch.randperm(qz_samples.size(1))[:10000]))
 
     K, S = qz_samples.size()
     N, _, nparams = qz_params.size()
     assert(nparams == q_dist.nparams)
     assert(K == qz_params.size(1))
 
-    marginal_entropies = torch.zeros(K).cuda()
-    joint_entropy = torch.zeros(1).cuda()
+    marginal_entropies = torch.zeros(K)
+    joint_entropy = torch.zeros(1)
+
+    if use_cuda:
+        marginal_entropies = marginal_entropies.cuda()
+        joint_entropy = joint_entropy.cuda()
+
 
     pbar = tqdm(total=S)
     k = 0
@@ -104,7 +111,7 @@ def analytical_NLL(qz_params, q_dist, prior_dist, qz_samples=None):
     return nlogqz_condx, nlogpz
 
 
-def elbo_decomposition(vae, dataset_loader):
+def elbo_decomposition(vae, dataset_loader, use_cuda):
     N = len(dataset_loader.dataset)  # number of data samples
     K = vae.z_dim                    # number of latent variables
     S = 1                            # number of latent variable samples
@@ -115,9 +122,17 @@ def elbo_decomposition(vae, dataset_loader):
     qz_params = torch.Tensor(N, K, nparams)
     n = 0
     logpx = 0
-    for xs in dataset_loader:
+
+    for xs,y in dataset_loader:
+        print(type(xs))
+        print(xs.shape)
         batch_size = xs.size(0)
-        xs = Variable(xs.view(batch_size, -1, 64, 64).cuda(), volatile=True)
+
+
+    # for i, x in enumerate(dataset_loader):
+    #     x = x[0] #only for mnist
+    #     batch_size = xs.size(0)
+        xs = Variable(xs.view(batch_size, -1, 28, 28), volatile=True)
         z_params = vae.encoder.forward(xs).view(batch_size, K, nparams)
         qz_params[n:n + batch_size] = z_params.data
         n += batch_size
@@ -130,7 +145,10 @@ def elbo_decomposition(vae, dataset_loader):
     # Reconstruction term
     logpx = logpx / (N * S)
 
-    qz_params = Variable(qz_params.cuda(), volatile=True)
+    if use_cuda:
+        qz_params = qz_params.cuda()
+    qz_params = Variable(qz_params, volatile=True)
+
 
     print('Sampling from q(z).')
     # sample S times from each marginal q(z_j|x_n)

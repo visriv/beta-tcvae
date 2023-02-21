@@ -17,7 +17,15 @@ def compute_metric_shapes(marginal_entropies, cond_entropies):
 
 
 def compute_metric_faces(marginal_entropies, cond_entropies):
-    factor_entropies = [21, 11, 11]
+    factor_entropies = [21, 11, 11] 
+    mutual_infos = marginal_entropies[None] - cond_entropies
+    mutual_infos = torch.sort(mutual_infos, dim=1, descending=True)[0].clamp(min=0)
+    mi_normed = mutual_infos / torch.Tensor(factor_entropies).log()[:, None]
+    metric = eval(metric_name)(mi_normed)
+    return metric
+
+def compute_metric_mnist(marginal_entropies, cond_entropies):
+    factor_entropies = [10, 5, 20, 20]
     mutual_infos = marginal_entropies[None] - cond_entropies
     mutual_infos = torch.sort(mutual_infos, dim=1, descending=True)[0].clamp(min=0)
     mi_normed = mutual_infos / torch.Tensor(factor_entropies).log()[:, None]

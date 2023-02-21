@@ -9,6 +9,79 @@ import lib.utils as utils
 from metric_helpers.loader import load_model_and_dataset
 from metric_helpers.mi_metric import compute_metric_shapes, compute_metric_faces
 
+def mutual_info_metric_mnist(vae, shapes_dataset):
+    dataset_loader = DataLoader(shapes_dataset, batch_size=1000, num_workers=1, shuffle=False)
+
+    N = len(dataset_loader.dataset)  # number of data samples
+    K = vae.z_dim                    # number of latent variables
+    nparams = vae.q_dist.nparams
+    vae.eval()
+
+    print('Computing q(z|x) distributions.')
+    qz_params = torch.Tensor(N, K, nparams)
+
+    n = 0
+    for xs in dataset_loader:
+        batch_size = xs.size(0)
+        xs = Variable(xs.view(batch_size, 1, 28, 28).cuda(), volatile=True)
+        qz_params[n:n + batch_size] = vae.encoder.forward(xs).view(batch_size, vae.z_dim, nparams).data
+        n += batch_size
+
+    qz_params = Variable(qz_params.view(3, 10, 5, 20, 20, K, nparams).cuda())
+    qz_samples = vae.q_dist.sample(params=qz_params)
+
+    print('Estimating marginal entropies.')
+    # marginal entropies
+    marginal_entropies = estimate_entropies(
+        qz_samples.view(N, K).transpose(0, 1),
+        qz_params.view(N, K, nparams),
+        vae.q_dist)
+
+    marginal_entropies = marginal_entropies.cpu()
+    cond_entropies = torch.zeros(3, K)
+
+    print('Estimating conditional entropies for azimuth.')
+    for i in range(10):
+        qz_samples_pose_az = qz_samples[:, i, :, :, :].contiguous()
+        qz_params_pose_az = qz_params[:, i, :, :, :].contiguous()
+
+        cond_entropies_i = estimate_entropies(
+            qz_samples_pose_az.view(N // 5, K).transpose(0, 1),
+            qz_params_pose_az.view(N // 5, K, nparams),
+            vae.q_dist)
+
+        cond_entropies[0] += cond_entropies_i.cpu() / 5
+
+    print('Estimating conditional entropies for elevation.')
+    for i in range(20):
+        qz_samples_pose_el = qz_samples[:, :, i, :, :].contiguous()
+        qz_params_pose_el = qz_params[:, :, i, :, :].contiguous()
+
+        cond_entropies_i = estimate_entropies(
+            qz_samples_pose_el.view(N // 20, K).transpose(0, 1),
+            qz_params_pose_el.view(N // 20, K, nparams),
+            vae.q_dist)
+
+        cond_entropies[1] += cond_entropies_i.cpu() / 20
+
+    print('Estimating conditional entropies for lighting.')
+    for i in range(20):
+        qz_samples_lighting = qz_samples[:, :, :, i, :].contiguous()
+        qz_params_lighting = qz_params[:, :, :, i, :].contiguous()
+
+        cond_entropies_i = estimate_entropies(
+            qz_samples_lighting.view(N // 20, K).transpose(0, 1),
+            qz_params_lighting.view(N // 20, K, nparams),
+            vae.q_dist)
+
+        cond_entropies[2] += cond_entropies_i.cpu() / 20
+
+    metric = compute_metric_faces(marginal_entropies, cond_entropies)
+    return metric, marginal_entropies, cond_entropies
+
+
+
+
 
 def estimate_entropies(qz_samples, qz_params, q_dist, n_samples=10000, weights=None):
     """Computes the term:
