@@ -1,0 +1,307 @@
+Setting up a new session...
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1257, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1303, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1252, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1012, in _send_output
+    self.send(msg)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 952, in send
+    self.connect()
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x128b64460>: Failed to establish a new connection: [Errno 61] Connection refused
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=4500): Max retries exceeded with url: /env/test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x128b64460>: Failed to establish a new connection: [Errno 61] Connection refused'))
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/visdom/__init__.py", line 756, in _send
+    return self._handle_post(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/visdom/__init__.py", line 720, in _handle_post
+    r = self.session.post(url, data=data)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 635, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=4500): Max retries exceeded with url: /env/test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x128b64460>: Failed to establish a new connection: [Errno 61] Connection refused'))
+[Errno 61] Connection refused
+on_close() takes 1 positional argument but 3 were given
+/Users/visriv/Library/Python/3.9/lib/python/site-packages/torch/nn/functional.py:1967: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+Exception in user code:
+------------------------------------------------------------
+1
+Exception in user code:
+------------------------------------------------------------
+1
+Setting up a new session...
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1257, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1303, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1252, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1012, in _send_output
+    self.send(msg)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 952, in send
+    self.connect()
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x1295c7250>: Failed to establish a new connection: [Errno 61] Connection refused
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=4500): Max retries exceeded with url: /env/test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1295c7250>: Failed to establish a new connection: [Errno 61] Connection refused'))
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/visdom/__init__.py", line 756, in _send
+    return self._handle_post(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/visdom/__init__.py", line 720, in _handle_post
+    r = self.session.post(url, data=data)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 635, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=4500): Max retries exceeded with url: /env/test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1295c7250>: Failed to establish a new connection: [Errno 61] Connection refused'))
+[Errno 61] Connection refused
+on_close() takes 1 positional argument but 3 were given
+Exception in user code:
+------------------------------------------------------------
+1
+Setting up a new session...
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1257, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1303, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1252, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1012, in _send_output
+    self.send(msg)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 952, in send
+    self.connect()
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x128b754c0>: Failed to establish a new connection: [Errno 61] Connection refused
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=4500): Max retries exceeded with url: /env/test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x128b754c0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/visdom/__init__.py", line 756, in _send
+    return self._handle_post(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/visdom/__init__.py", line 720, in _handle_post
+    r = self.session.post(url, data=data)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 635, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=4500): Max retries exceeded with url: /env/test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x128b754c0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+[Errno 61] Connection refused
+on_close() takes 1 positional argument but 3 were given
+Exception in user code:
+------------------------------------------------------------
+Setting up a new session...
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1257, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1303, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1252, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1012, in _send_output
+    self.send(msg)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 952, in send
+    self.connect()
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x1295b7340>: Failed to establish a new connection: [Errno 61] Connection refused
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=4500): Max retries exceeded with url: /env/test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1295b7340>: Failed to establish a new connection: [Errno 61] Connection refused'))
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/visdom/__init__.py", line 756, in _send
+    return self._handle_post(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/visdom/__init__.py", line 720, in _handle_post
+    r = self.session.post(url, data=data)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 635, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=4500): Max retries exceeded with url: /env/test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1295b7340>: Failed to establish a new connection: [Errno 61] Connection refused'))
+[Errno 61] Connection refused
+on_close() takes 1 positional argument but 3 were given
+1
+Exception in user code:
+------------------------------------------------------------
+1
+Setting up a new session...
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1257, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1303, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1252, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1012, in _send_output
+    self.send(msg)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 952, in send
+    self.connect()
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x1298cd310>: Failed to establish a new connection: [Errno 61] Connection refused
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=4500): Max retries exceeded with url: /env/test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1298cd310>: Failed to establish a new connection: [Errno 61] Connection refused'))
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/visdom/__init__.py", line 756, in _send
+    return self._handle_post(
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/visdom/__init__.py", line 720, in _handle_post
+    r = self.session.post(url, data=data)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 635, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/visriv/Library/Python/3.9/lib/python/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=4500): Max retries exceeded with url: /env/test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1298cd310>: Failed to establish a new connection: [Errno 61] Connection refused'))
+[Errno 61] Connection refused
+on_close() takes 1 positional argument but 3 were given

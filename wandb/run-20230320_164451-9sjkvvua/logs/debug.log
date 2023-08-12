@@ -1,0 +1,45 @@
+2023-03-20 16:44:51,485 INFO    MainThread:10027 [wandb_setup.py:_flush():68] Configure stats pid to 10027
+2023-03-20 16:44:51,485 INFO    MainThread:10027 [wandb_setup.py:_flush():68] Loading settings from /Users/visriv/.config/wandb/settings
+2023-03-20 16:44:51,485 INFO    MainThread:10027 [wandb_setup.py:_flush():68] Loading settings from /Users/visriv/Documents/Git/beta-tcvae/wandb/settings
+2023-03-20 16:44:51,486 INFO    MainThread:10027 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2023-03-20 16:44:51,486 INFO    MainThread:10027 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2023-03-20 16:44:51,486 INFO    MainThread:10027 [wandb_init.py:_log_setup():492] Logging user logs to /Users/visriv/Documents/Git/beta-tcvae/wandb/run-20230320_164451-9sjkvvua/logs/debug.log
+2023-03-20 16:44:51,486 INFO    MainThread:10027 [wandb_init.py:_log_setup():493] Logging internal logs to /Users/visriv/Documents/Git/beta-tcvae/wandb/run-20230320_164451-9sjkvvua/logs/debug-internal.log
+2023-03-20 16:44:51,486 INFO    MainThread:10027 [wandb_init.py:_jupyter_setup():438] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x122b6ebe0>
+2023-03-20 16:44:51,486 INFO    MainThread:10027 [wandb_init.py:init():532] calling init triggers
+2023-03-20 16:44:51,486 INFO    MainThread:10027 [wandb_init.py:init():538] wandb.init called with sweep_config: {}
+config: {}
+2023-03-20 16:44:51,486 INFO    MainThread:10027 [wandb_init.py:init():588] starting backend
+2023-03-20 16:44:51,487 INFO    MainThread:10027 [wandb_init.py:init():592] setting up manager
+2023-03-20 16:44:51,489 INFO    MainThread:10027 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2023-03-20 16:44:51,491 INFO    MainThread:10027 [wandb_init.py:init():599] backend started and connected
+2023-03-20 16:44:51,495 INFO    MainThread:10027 [wandb_run.py:_label_probe_notebook():1203] probe notebook
+2023-03-20 16:44:51,495 INFO    MainThread:10027 [wandb_run.py:_label_probe_notebook():1213] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2023-03-20 16:44:51,496 INFO    MainThread:10027 [wandb_init.py:init():687] updated telemetry
+2023-03-20 16:44:51,544 INFO    MainThread:10027 [wandb_init.py:init():727] communicating run to backend with 60.0 second timeout
+2023-03-20 16:44:52,454 INFO    MainThread:10027 [wandb_run.py:_on_init():2134] communicating current version
+2023-03-20 16:44:52,608 INFO    MainThread:10027 [wandb_run.py:_on_init():2143] got version response upgrade_message: "wandb version 0.14.0 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-03-20 16:44:52,608 INFO    MainThread:10027 [wandb_init.py:init():775] starting run threads in backend
+2023-03-20 16:44:52,916 INFO    MainThread:10027 [wandb_run.py:_console_start():2114] atexit reg
+2023-03-20 16:44:52,916 INFO    MainThread:10027 [wandb_run.py:_redirect():1969] redirect: SettingsConsole.WRAP_RAW
+2023-03-20 16:44:52,917 INFO    MainThread:10027 [wandb_run.py:_redirect():2034] Wrapping output streams.
+2023-03-20 16:44:52,917 INFO    MainThread:10027 [wandb_run.py:_redirect():2059] Redirects installed.
+2023-03-20 16:44:52,917 INFO    MainThread:10027 [wandb_init.py:init():817] run started, returning control to user process
+2023-03-20 16:44:52,922 INFO    MainThread:10027 [jupyter.py:_save_ipynb():390] looking for notebook: beta_tcvae.ipynb
+2023-03-20 16:44:52,922 INFO    MainThread:10027 [wandb_init.py:_pause_backend():403] pausing backend
+2023-03-20 16:44:58,379 INFO    MainThread:10027 [wandb_init.py:_resume_backend():408] resuming backend
+2023-03-20 16:45:03,239 INFO    MainThread:10027 [jupyter.py:_save_ipynb():390] looking for notebook: beta_tcvae.ipynb
+2023-03-20 16:45:03,239 INFO    MainThread:10027 [wandb_init.py:_pause_backend():403] pausing backend
+2023-03-20 16:47:14,138 INFO    MainThread:10027 [wandb_init.py:_resume_backend():408] resuming backend
+2023-03-20 16:47:19,835 INFO    MainThread:10027 [jupyter.py:_save_ipynb():390] looking for notebook: beta_tcvae.ipynb
+2023-03-20 16:47:19,836 INFO    MainThread:10027 [wandb_init.py:_pause_backend():403] pausing backend
+2023-03-20 16:47:37,112 INFO    MainThread:10027 [wandb_init.py:_resume_backend():408] resuming backend
+2023-03-20 16:47:37,120 INFO    MainThread:10027 [jupyter.py:_save_ipynb():390] looking for notebook: beta_tcvae.ipynb
+2023-03-20 16:47:37,120 INFO    MainThread:10027 [wandb_init.py:_pause_backend():403] pausing backend
+2023-03-20 16:47:39,446 INFO    MainThread:10027 [wandb_init.py:_resume_backend():408] resuming backend
+2023-03-20 16:47:39,448 INFO    MainThread:10027 [jupyter.py:_save_ipynb():390] looking for notebook: beta_tcvae.ipynb
+2023-03-20 16:47:39,448 INFO    MainThread:10027 [wandb_init.py:_pause_backend():403] pausing backend
+2023-03-20 16:47:41,613 INFO    MainThread:10027 [wandb_init.py:_resume_backend():408] resuming backend
+2023-03-20 23:53:38,975 INFO    MainThread:10027 [jupyter.py:_save_ipynb():390] looking for notebook: beta_tcvae.ipynb
+2023-03-20 23:53:38,975 INFO    MainThread:10027 [wandb_init.py:_pause_backend():403] pausing backend
